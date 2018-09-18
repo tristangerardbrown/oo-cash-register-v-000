@@ -10,17 +10,19 @@ class CashRegister
 
   def add_item (title, price, quantity = 1)
     @total += price * quantity
+    items << title 
   end
 
   def apply_discount
-    if @discount > 0
-      @total = (total * (0.01 * (100 - @discount))).to_i
-      "After the discount, the total comes to $#{@total}."
+    if self.discount > 0
+      self.total = (total * (0.01 * (100 - self.discount))).to_i
+      "After the discount, the total comes to $#{self.total}."
     else "There is no discount to apply."
    end
   end
 
   def items
+
   end
 
   def void_last_transaction
